@@ -23,5 +23,7 @@ The function will also update the inventory_records (For restocking) for a  give
         max_unit_sells = min(200, available_items)
         todays_sales = random.randint(1, 200)
         available_items = available_items - todays_sales
+        inventory_records.append([current_day, todays_sales, 0, available_items])
+
     
     return available_items
