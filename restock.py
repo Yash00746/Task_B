@@ -24,7 +24,10 @@ The function will also update the inventory_records (For restocking) for a  give
     elif current_day % 7 == 0:
          restock_items = 0
          if available_items < 2000:
+            # Calculate the number of items to restock to maintain inventory at 2000
+
              restock_items = 2000 - available_items
+         # Update the available items after restocking
 
          available_items = available_items + restock_items
          inventory_records.append([current_day, 0, restock_items, available_items])
