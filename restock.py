@@ -19,6 +19,13 @@ The function will also update the inventory_records (For restocking) for a  give
     '''
     if current_day == 0:
         inventory_records.append([current_day, 0, 2000, available_items])
+    elif current_day % 7 == 0:
+        restock_items = 0
+        if available_items < 2000:
+            restock_items = 2000 - available_items
+
+    available_items = available_items + restock_items
+    inventory_records.append([current_day, 0, restock_items, available_items])
 
 
     return available_items
