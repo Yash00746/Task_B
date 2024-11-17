@@ -18,8 +18,12 @@ available_items:(integer) This function returns this integer which updates the a
 The function will also update the inventory_records (For restocking) for a  given current day. It will also return "available_items".
     '''
     if current_day == 0:
+    # Initialize inventory on the first day
+
         inventory_records.append([current_day, 0, 2000, available_items])
     elif current_day % 7 == 0:
+        # Restock to maintain inventory every 7th day
+
         restock_items = 0
         if available_items < 2000:
             restock_items = 2000 - available_items
