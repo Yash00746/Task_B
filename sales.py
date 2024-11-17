@@ -20,9 +20,14 @@ The function will also update the inventory_records (For restocking) for a  give
 
     '''
     if current_day % 7 != 0:
-        max_unit_sells = min(200, available_items)
-        todays_sales = random.randint(1, 200)
-        available_items = available_items - todays_sales
+        # Process daily sales for non-restocking days
+
+        max_unit_sells = min(200, available_items)  # Maximum units that can be sold based on inventory
+        todays_sales = random.randint(1, 200)        # Randomly determine today's sales within the limit
+        available_items = available_items - todays_sales    # Update available items after sales
+        
+        # Record the inventory details for the day
+
         inventory_records.append([current_day, todays_sales, 0, available_items])
 
     
