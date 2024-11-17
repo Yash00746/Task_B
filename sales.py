@@ -20,6 +20,8 @@ The function will also update the inventory_records (For restocking) for a  give
 
     '''
     if current_day % 7 != 0:
-        pass
+        max_unit_sells = min(200, available_items)
+        todays_sales = random.randint(1, 200)
+        available_items = available_items - todays_sales
     
     return available_items
